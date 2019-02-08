@@ -13,14 +13,18 @@
     <h1>Notes app</h1>
     <h2>Take notes and never forget</h2>
     <input type="text" id="search" placeholder="filter todos">
-
+    
+    <select id="selector">
+        <option>sort by last edited</option>
+        <option>sort by recently created</option>
+        <option>sort alphabetically</option>
+    </select>
     <div id="notes">
 
     </div>
+
     <button id="create-notes">Create Note</button>
-    <label>
-        <input type="checkbox" name="checkComplete" id="check"> complete?
-    </label>
+
     <script src="main.js"></script> <!-- placed here cause html is executed sequentially-->
 </body>
 

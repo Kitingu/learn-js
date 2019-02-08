@@ -13,6 +13,7 @@ const notes = [{
 const filters = {
     searchText: ''
 }
+
 const renderNotes = function (notes, filters) {
     const filteredNotes = notes.filter(function (note) {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
@@ -32,6 +33,6 @@ document.querySelector('#search').addEventListener('input', function (e) {
     renderNotes(notes, filters)
 })
 
-document.querySelector('#check').addEventListener('change', function (e) {
-    console.log(e.target.checked)
+document.querySelector('#selector').addEventListener('change', function (e) {
+    console.log(e.target.value)
 })
