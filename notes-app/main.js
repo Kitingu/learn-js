@@ -32,48 +32,6 @@ document.querySelector('#search').addEventListener('input', function (e) {
     renderNotes(notes, filters)
 })
 
-document.querySelector('#name-form').addEventListener('submit',function(e){
-    e.preventDefault()
-    console.log(e.target.elements.firstName.value)
-    e.target.elements.firstName.value = ''
+document.querySelector('#check').addEventListener('change', function (e) {
+    console.log(e.target.checked)
 })
-// const button = document.querySelector('#create-notes').addEventListener('click', function (e) {
-//     e.target.textContent = 'The button was clicked'
-// })
-
-// get elements by ID
-// const button1 = document.querySelector('#remove-notes').addEventListener('click', function (e) {
-//     e.target.textContent = 'The button was clicked'
-// })
-
-// get element by class
-
-// document.querySelectorAll('.note').forEach(function (note) {
-//     note.remove()
-// })
-
-//  multiple selections
-// p#orders
-// button.inventory
-// h1#title.app
-// h1.app#title
-
-// const p = document.querySelector('p') // --matches the first match
-// p.remove()
-// console.log(p)
-
-// query all and remove
-// const ps = document.querySelectorAll('p')
-// ps.forEach(function (p) {
-//     p.textContent = '**********' //-->sets the content in the browser to the sring specified
-//     console.log(p.textContent)
-// p.remove()
-// })
-
-
-// add an html element
-// const newParagraph = document.createElement('p')
-// newParagraph.textContent = 'this is a new element from javascript'
-// document.querySelector('body').appendChild(newParagraph)
-
-

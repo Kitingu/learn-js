@@ -4,7 +4,7 @@ const todos = [{
 },
 {
     text: 'read the bible',
-    completed: true
+    completed: false
 },
 {
     text: 'take breakfats',
@@ -25,18 +25,6 @@ document.querySelector('#add-todo').addEventListener('click', function () {
 document.querySelector('#add-new-todo').addEventListener('input', function (e) {
     console.log(e.target.value)
 })
-////////////////////////////////////////////////////////////
-//   getElementbyID is same as querySelector(#elementId)  //
-//////////////////////////////////// ///////////////////////
-
-// const paragraphs = document.querySelectorAll('p')
-// const paragraph = paragraphs.forEach(function (paragraph) {
-//     if (paragraph.textContent.includes('the')){
-//         paragraph.remove()
-//     }
-// })
-
-
 
 
 
@@ -50,11 +38,21 @@ todos.forEach(function (todo) {
 
 // challenge
 const filters = {
-    searchText: ''
+    searchText: '',
+    hideCompleted: false
 }
 const renderTodos = function (todos, filters) {
-    const filteredTodos = todos.filter(function (todo) {
+    let filteredTodos = todos.filter(function (todo) {
         return todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+    })
+    filteredTodos = filteredTodos.filter(function (todo) {
+        return !filters.hideCompleted || !todo.completed
+        // if (filters.hideCompleted) {
+        //     return !todo.completed
+        // }
+        // else {
+        //     return true
+        // }
     })
     const incopleteTodos = todos.filter(function (todo) {
         return !todo.completed
@@ -88,5 +86,11 @@ document.querySelector('#todo-form').addEventListener('submit', function (e) {
         completed: false
     })
     e.target.elements.todoName.value = ''
+    renderTodos(todos, filters)
+})
+
+// work with checkboxes
+document.querySelector('#check-complete').addEventListener('change', function (e) {
+    filters.hideCompleted = e.target.checked
     renderTodos(todos, filters)
 })
