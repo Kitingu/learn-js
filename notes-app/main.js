@@ -13,15 +13,18 @@ const notes = [{
 const filters = {
     searchText: ''
 }
-// local storage
-localStorage.setItem('location', 'vota') //create and update(key,value)
-localStorage.getItem('location')  //r (key)
+const userObj = {
+    name: 'benedict',
+    age: 25
+}
+// stringfy --> creates a proper json objects using double quotes 
+// parse --> convers json into js object
+userJson = JSON.stringify(userObj)
 
-localStorage.removeItem('location') // delete
-localStorage.clear() //--> removes everything
+const userJsonified = localStorage.getItem(user)
+const user = JSON.parse(userJsonified)
 
-
-
+console.log(`my name is ${user.name} and iam ${user.age}`)
 const renderNotes = function (notes, filters) {
     const filteredNotes = notes.filter(function (note) {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
