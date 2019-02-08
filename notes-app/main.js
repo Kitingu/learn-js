@@ -13,6 +13,14 @@ const notes = [{
 const filters = {
     searchText: ''
 }
+// local storage
+localStorage.setItem('location', 'vota') //create and update(key,value)
+localStorage.getItem('location')  //r (key)
+
+localStorage.removeItem('location') // delete
+localStorage.clear() //--> removes everything
+
+
 
 const renderNotes = function (notes, filters) {
     const filteredNotes = notes.filter(function (note) {
