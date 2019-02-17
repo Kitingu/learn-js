@@ -1,39 +1,9 @@
-const todos = [{
-    text: 'wake up',
-    completed: true
-},
-{
-    text: 'read the bible',
-    completed: false
-},
-{
-    text: 'take breakfats',
-    completed: true
-},
-{
-    text: 'code',
-    completed: true
-},
-{
-    text: 'sleep',
-    completed: false
-}]
-document.querySelector('#add-todo').addEventListener('click', function () {
-    console.log('this was clicked')
-})
+let todos = getSavedTodos()
 
-document.querySelector('#add-new-todo').addEventListener('input', function (e) {
-    console.log(e.target.value)
-})
-
-
-
-
-todos.forEach(function (todo) {
-    const p = document.createElement('p')
-    p.textContent = todo.text
-    document.querySelector('body').appendChild(p)
-})
+// const todosJSON = localStorage.getItem('todos')
+// document.querySelector('#add-todo').addEventListener('click', function () {
+//     console.log('this was clicked')
+// })
 
 
 // challenge
@@ -41,29 +11,7 @@ const filters = {
     searchText: '',
     hideCompleted: false
 }
-const renderTodos = function (todos, filters) {
-    const filteredTodos = todos.filter(function (todo) {
-        const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
-        const hideCompletedMatch = !filters.hideCompleted || !todo.completed
-        return searchTextMatch && hideCompletedMatch
-    })
 
-    const incopleteTodos = todos.filter(function (todo) {
-        return !todo.completed
-    })
-
-    document.querySelector('#new-todos').innerHTML = ''
-
-    const summary = document.createElement('h2')
-    summary.textContent = `you have ${incopleteTodos.length} todos left`
-    document.querySelector('#new-todos').appendChild(summary)
-
-    filteredTodos.forEach(function (todo) {
-        const todoEl = document.createElement('p')
-        todoEl.textContent = todo.text
-        document.querySelector('#new-todos').appendChild(todoEl)
-    })
-}
 renderTodos(todos, filters)
 
 document.querySelector('#add-new-todo').addEventListener('input', function (e) {
@@ -79,8 +27,10 @@ document.querySelector('#todo-form').addEventListener('submit', function (e) {
         text: e.target.elements.todoName.value,
         completed: false
     })
-    e.target.elements.todoName.value = ''
+    saveTodos(todos)
     renderTodos(todos, filters)
+    e.target.elements.todoName.value = ''
+
 })
 
 // work with checkboxes
