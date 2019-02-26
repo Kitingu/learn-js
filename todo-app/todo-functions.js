@@ -20,7 +20,6 @@ const renderTodos = function (todos, filters) {
     const filteredTodos = todos.filter(function (todo) {
         const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
         const hideCompletedMatch = !filters.hideCompleted || !todo.completed
-
         return searchTextMatch && hideCompletedMatch
     })
 
@@ -40,9 +39,6 @@ const generateTodoDom = function (todo) {
     const p = document.createElement('p')
     p.textContent = todo.text
     return p
-    // const todoEl = document.createElement('p')
-    // todoEl.textContent = todo.text
-    // document.querySelector('#new-todos').appendChild(todoEl)
 }
 
 const generateSummaryDom = function (incopleteTodos) {
