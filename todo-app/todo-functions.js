@@ -8,7 +8,14 @@ const getSavedTodos = function (todos) {
         return []
     }
 }
-
+const removeTodo = function (id) {
+    const todoIndex = todos.findIndex(function (todo) {
+        return todo.id === id
+    })
+    if (todoIndex > -1) {
+        todos.splice(todoIndex, 1)
+    }
+}
 // save toddos
 const saveTodos = function (todos) {
     localStorage.setItem('todos', JSON.stringify(todos))
@@ -41,6 +48,11 @@ const generateTodoDom = function (todo) {
     const todoText = document.createElement('span')
     const removeButton = document.createElement('button')
 
+    removeButton.addEventListener('click', function () {
+        removeTodo(todo.id)
+        saveTodos(todos)
+        renderTodos(todos, filters)
+    })
     // setup the checkbox
     checkbox.setAttribute('type', 'checkbox')
     todoEl.appendChild(checkbox)
