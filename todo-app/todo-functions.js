@@ -36,9 +36,23 @@ const renderTodos = function (todos, filters) {
     })
 }
 const generateTodoDom = function (todo) {
-    const p = document.createElement('p')
-    p.textContent = todo.text
-    return p
+    const todoEl = document.createElement('div')
+    const checkbox = document.createElement('input')
+    const todoText = document.createElement('span')
+    const removeButton = document.createElement('button')
+
+    // setup the checkbox
+    checkbox.setAttribute('type', 'checkbox')
+    todoEl.appendChild(checkbox)
+
+    // setup the todo text
+    todoEl.appendChild(todoText)
+    todoText.textContent = todo.text
+
+    // setup remove button
+    removeButton.textContent = 'x'
+    todoEl.appendChild(removeButton)
+    return todoEl
 }
 
 const generateSummaryDom = function (incopleteTodos) {
@@ -46,4 +60,4 @@ const generateSummaryDom = function (incopleteTodos) {
     summary.textContent = `you have ${incopleteTodos.length} todos left`
     return summary
     // document.querySelector('#new-todos').appendChild(summary)
-}
+} 
