@@ -1,5 +1,5 @@
 // DOM manipulation --> Document Object Model
-let notes = getSaveNotes()
+let notes = getSavedNotes()
 
 const filters = {
     searchText: ''
@@ -10,6 +10,7 @@ renderNotes(notes, filters)
 
 document.querySelector('#create-notes').addEventListener('click', function (e) {
     notes.push({
+        id: uuidv4(),
         title: '',
         body: ''
     })
