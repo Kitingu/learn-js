@@ -28,3 +28,10 @@ document.querySelector('#search').addEventListener('input', function (e) {
 document.querySelector('#selector').addEventListener('change', function (e) {
     console.log(e.target.value)
 })
+
+window.addEventListener('storage', function (e) {
+    if (e.key === 'notes') {
+        notes = JSON.parse(e.newValue)
+        renderNotes(notes, filters)
+    }
+})
