@@ -1,5 +1,5 @@
 // fetch existing todos
-const getSavedTodos = function (todos) {
+const getSavedTodos = (todos) => {
     const todosJson = localStorage.getItem('todos')
     if (todosJson !== null) {
         return JSON.parse(todosJson)
@@ -8,57 +8,51 @@ const getSavedTodos = function (todos) {
         return []
     }
 }
-const removeTodo = function (id) {
-    const todoIndex = todos.findIndex(function (todo) {
-        return todo.id === id
-    })
+const removeTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id)
     if (todoIndex > -1) {
         todos.splice(todoIndex, 1)
     }
 }
 // toggle the completed value for a given todo
-const toggleTodo = function (id) {
-    const todo = todos.find(function (todo) {
-        return todo.id === id
-    })
+const toggleTodo = (id) => {
+    const todo = todos.find((todo) => todo.id === id)
     if (todo != undefined) {
         todo.completed = !todo.completed
     }
 }
 
 // save toddos
-const saveTodos = function (todos) {
+const saveTodos = (todos) => {
     localStorage.setItem('todos', JSON.stringify(todos))
 }
 
 // render todos
 
-const renderTodos = function (todos, filters) {
-    const filteredTodos = todos.filter(function (todo) {
+const renderTodos = (todos, filters) => {
+    const filteredTodos = todos.filter((todo) => {
         const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
         const hideCompletedMatch = !filters.hideCompleted || !todo.completed
         return searchTextMatch && hideCompletedMatch
     })
 
-    const incopleteTodos = todos.filter(function (todo) {
-        return !todo.completed
-    })
+    const incopleteTodos = todos.filter((todo) => !todo.completed)
 
     document.querySelector('#new-todos').innerHTML = ''
 
     document.querySelector('#new-todos').appendChild(generateSummaryDom(incopleteTodos))
 
-    filteredTodos.forEach(function (todo) {
+    filteredTodos.forEach((todo) => {
         document.querySelector('#new-todos').appendChild(generateTodoDom(todo))
     })
 }
-const generateTodoDom = function (todo) {
+const generateTodoDom = (todo) => {
     const todoEl = document.createElement('div')
     const checkbox = document.createElement('input')
     const todoText = document.createElement('span')
     const removeButton = document.createElement('button')
 
-    removeButton.addEventListener('click', function () {
+    removeButton.addEventListener('click', () => {
         removeTodo(todo.id)
         saveTodos(todos)
         renderTodos(todos, filters)
@@ -67,7 +61,7 @@ const generateTodoDom = function (todo) {
     checkbox.setAttribute('type', 'checkbox')
     checkbox.checked = todo.completed
     todoEl.appendChild(checkbox)
-    checkbox.addEventListener('change', function () {
+    checkbox.addEventListener('change', () => {
         toggleTodo(todo.id)
         saveTodos(todos)
         renderTodos(todos, filters)
@@ -82,7 +76,7 @@ const generateTodoDom = function (todo) {
     return todoEl
 }
 
-const generateSummaryDom = function (incopleteTodos) {
+const generateSummaryDom = (incopleteTodos) => {
     const summary = document.createElement('h2')
     summary.textContent = `you have ${incopleteTodos.length} todos left`
     return summary

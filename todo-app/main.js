@@ -14,13 +14,13 @@ const filters = {
 
 renderTodos(todos, filters)
 
-document.querySelector('#add-new-todo').addEventListener('input', function (e) {
+document.querySelector('#add-new-todo').addEventListener('input', (e) => {
     filters.searchText = e.target.value
     renderTodos(todos, filters)
 })
 
 // add todo to the array
-document.querySelector('#todo-form').addEventListener('submit', function (e) {
+document.querySelector('#todo-form').addEventListener('submit', (e) => {
     e.preventDefault()
 
     todos.push({
@@ -35,7 +35,7 @@ document.querySelector('#todo-form').addEventListener('submit', function (e) {
 })
 
 // work with checkboxes
-document.querySelector('#check-complete').addEventListener('change', function (e) {
+document.querySelector('#check-complete').addEventListener('change', (e) => {
     filters.hideCompleted = e.target.checked
     renderTodos(todos, filters)
 })
