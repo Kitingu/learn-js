@@ -36,23 +36,22 @@ window.addEventListener('storage', function (e) {
     }
 })
 
-// const now = new Date()
-// const now = new Date('January 21 2019 6:39:01')
-// console.log(now.getTime())
-// console.log(`year ${now.getFullYear()}`)
-// console.log(`month ${now.getMonth()}`)
-// console.log(`day of month ${now.getDate()}`)
-// console.log(`minutes ${now.getMinutes()}`)
-// console.log(`seconds ${now.getSeconds()}`)
+const now = moment()
+now.minute(32); 
+now.add(1, 'minute') //date manipulation mathematically
+console.log(now.toString())
+console.log(now.format('Do MMMM, YYYY')) //date formating
+console.log(now.fromNow()) //diffrence of current time and some time in the past or future
 
-const now = new Date('January 21 2019 6:39:01')
-const thene = new Date('January 23 2018 6:39:01')
-const time1 = now.getTime()
-const time2 = thene.getTime()
+const nowTimestamp = now.valueOf() //time to timestamp
+console.log(nowTimestamp)
+console.log(moment(nowTimestamp).toString()) //retrieve time from timestamp
 
-if (time1 > time2) {
-    console.log(now.toString())
-}
-else {
-    console.log(thene.toString())
-}
+// challenge write your birthday
+const bday = moment()
+bday.date(11)
+bday.month(8) //months are zero indexed
+bday.year(1993)
+// alternatively this can be expressed as bday.date(11).month(8).year(1993)
+//this is called chaining
+console.log(bday.format('MMM D, YYYY'))
