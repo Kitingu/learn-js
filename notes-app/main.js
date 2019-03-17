@@ -35,3 +35,24 @@ window.addEventListener('storage', function (e) {
         renderNotes(notes, filters)
     }
 })
+
+// const now = new Date()
+// const now = new Date('January 21 2019 6:39:01')
+// console.log(now.getTime())
+// console.log(`year ${now.getFullYear()}`)
+// console.log(`month ${now.getMonth()}`)
+// console.log(`day of month ${now.getDate()}`)
+// console.log(`minutes ${now.getMinutes()}`)
+// console.log(`seconds ${now.getSeconds()}`)
+
+const now = new Date('January 21 2019 6:39:01')
+const thene = new Date('January 23 2018 6:39:01')
+const time1 = now.getTime()
+const time2 = thene.getTime()
+
+if (time1 > time2) {
+    console.log(now.toString())
+}
+else {
+    console.log(thene.toString())
+}
