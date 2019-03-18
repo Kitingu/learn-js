@@ -1,7 +1,12 @@
 // fetch existing todos
 const getSavedTodos = (todos) => {
     const todosJson = localStorage.getItem('todos')
-    return todosJson ? JSON.parse(todosJson) : []
+    try {
+        return todosJson ? JSON.parse(todosJson) : []
+
+    } catch (e) {
+        return []
+    }
 }
 const removeTodo = (id) => {
     const todoIndex = todos.findIndex((todo) => todo.id === id)
