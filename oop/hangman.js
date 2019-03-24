@@ -3,7 +3,7 @@ const Hangman = function (word, remainingGuesses) {
     this.remainingGuesses = remainingGuesses
     this.geussedLetters = ['c','a']
 }
-
+// challenge 1
 Hangman.prototype.getPuzzle = function () {
     let puzzle = ''
 
