@@ -22,31 +22,7 @@ Hangman.prototype.getPuzzle = function () {
 
 Hangman.prototype.calculateStatus = function () {
 
-    // first alternative   ==> using every
-    // const lettersGuessed = this.word.every((letter){
-    //     return this.geussedLetters.includes(letter)
-    // })
-
-
-    // second alternative ==> using filter
-    // const lettersUnguessed = this.word.filter((letter) => {
-    //     return this.geussedLetters.includes(letter)
-    // })
-
-
-
-    // third alternative
-
-    let finished = true
-
-    this.word.forEach((letter) => {
-        if (this.geussedLetters.includes(letter)) {
-
-        }
-        else {
-            finished = false
-        }
-    })
+    const lettersGuessed = this.word.every((letter) => this.geussedLetters.includes(letter))
 
     if (this.remainingGuesses === 0) {
         this.status = 'failed'
