@@ -1,5 +1,3 @@
-// prototypal inheritance
-// protype fuctions are accessible to all instances of the class i.e methods
 
 class Person {
     constructor(firstName, lastName, age, likes = []) {
@@ -25,11 +23,28 @@ class Person {
     }
 }
 
+// inheritance in js or sub classes
+
+class Employee extends Person {
+    constructor(firstName, lastName, age, position, likes) {
+        super(firstName, lastName, age, likes)
+        this.position = position
+    }
+
+    getBio(){
+        return `${this.firstName} ${this.lastName} is a ${this.position}.`
+    }
+
+    getYearsLeft(){
+        return 65 - this.age
+    }
+}
 
 
 const kasee = new Person('charles', 'mwendwa', 13)
-const me = new Person('benedict', 'mwendwa', 25, ['watching', 'dancing'])
+const me = new Employee('benedict', 'mwendwa', 25, 'Teacher', ['watching', 'dancing'])
 me.setName('stephen kitingu')
 console.log(me.getBio())
+console.log(me.getYearsLeft())
 
 console.log(kasee.getBio())
