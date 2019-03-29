@@ -31,20 +31,32 @@ class Employee extends Person {
         this.position = position
     }
 
-    getBio(){
+    getBio() {
         return `${this.firstName} ${this.lastName} is a ${this.position}.`
     }
 
-    getYearsLeft(){
+    getYearsLeft() {
         return 65 - this.age
     }
 }
 
+class Student extends Person {
+    constructor(firstName, lastName, age, grade, likes) {
+        super(firstName, lastName, age, likes)
+        this.grade = grade
+    }
 
-const kasee = new Person('charles', 'mwendwa', 13)
-const me = new Employee('benedict', 'mwendwa', 25, 'Teacher', ['watching', 'dancing'])
-me.setName('stephen kitingu')
+    getBio() {
+        const status = this.grade >= 70 ? 'passing' : 'failing'
+
+        return `${this.firstName} is ${status} the class.`
+    }
+
+
+    upgradeGrade(change) {
+        this.grade += change
+    }
+}
+
+const me = new Student('john', 'mutiso', 21, 40, ['balling'])
 console.log(me.getBio())
-console.log(me.getYearsLeft())
-
-console.log(kasee.getBio())
