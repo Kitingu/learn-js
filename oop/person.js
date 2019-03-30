@@ -11,12 +11,15 @@ class Person {
         let bio = `${this.firstName} is ${this.age}.`
 
         this.likes.forEach((like) => {
-            bio += ` ${this.firstName} likes ${like}.`
+            bio += ` ${this.fullName} likes ${like}.`
         })
         return bio
     }
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`
+    }
 
-    setName(fullName) {
+    set fullName(fullName) {
         const names = fullName.split(' ')
         this.firstName = names[0]
         this.lastName = names[1]
@@ -59,4 +62,5 @@ class Student extends Person {
 }
 
 const me = new Student('john', 'mutiso', 21, 40, ['balling'])
+me.fullName = 'joseph kisai'
 console.log(me.getBio())
