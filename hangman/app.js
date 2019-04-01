@@ -18,17 +18,19 @@ window.addEventListener('keypress', (e) => {
 })
 
 
-getPuzzle((error, puzzle) => {
-    if (error) {
-        console.log(`Error: ${error}`)
-    }
-    else {
-        console.log(puzzle)
-    }
-})
+// getPuzzle((error, puzzle) => {
+//     if (error) {
+//         console.log(`Error: ${error}`)
+//     }
+//     else {
+//         console.log(puzzle)
+//     }
+// })
 
 
-
+const puzzle = getPuzzleSync()
+console.log(puzzle)
+console.log('something else')
 // const countryRequest = new XMLHttpRequest()
 // const countryCode = 'KE'
 // countryRequest.addEventListener('readystatechange', (e) => {
