@@ -1,7 +1,7 @@
 // callback
 const getDataCallback = (callback) => {
     setTimeout(() => {
-        callback( 'this time is the data',undefined)
+        callback('this time is the data', undefined)
 
     }, 2000)
 }
@@ -9,7 +9,7 @@ const getDataCallback = (callback) => {
 
 getDataCallback((error, data) => {
     if (error) {
-console.log('error')
+        console.log('error')
     }
     else {
         console.log(data)
@@ -18,13 +18,15 @@ console.log('error')
 
 //promise
 
-const myPromise = new Promise((resolve, reject) => {
+const getPromiseData = (data) => new Promise((resolve, reject) => {
     setTimeout(() => {
-        // resolve('this time is the promise data')
-        reject('this is the promise error')
+        resolve(`this is the promise data: ${data}`)
+        // reject('this is the promise error')
     }, 2000)
 })
 
+
+const myPromise = getPromiseData("kasee")
 myPromise.then((data) => {
     console.log(data)
 },
