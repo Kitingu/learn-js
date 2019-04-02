@@ -17,19 +17,21 @@ const getPuzzle = (callback) => {
     request.send()
 }
 
+const getCountry = (countryCode, callback) => {
+    const countryRequest = new XMLHttpRequest()
 
-const getPuzzleSync = () => {
+    countryRequest.addEventListener('readystatechange', (e) => {
+        if (e.target.readyState === 4 && e.target.status === 200) {
+            const data = JSON.parse(e.target.responseText)
+            const country = data.find(country => country.alpha2Code === countryCode)
+            callback(undefined, country)
 
+        }
+        else if (e.target.readyState === 4) {
+            callback('An error has occured', undefined)
+        }
+    })
 
-    const request = new XMLHttpRequest()
-
-    request.open('GET', 'http://puzzle.mead.io/puzzle?wordCount=2', false)
-    request.send()
-
-    if (request.readyState === 4 && request.status === 200) {
-        const data = JSON.parse(request.responseText)
-        return data.puzzle
-    } else if (request.readyState === 4) {
-        throw new error('things didn\'t go well')
-    }
+    countryRequest.open('GET', 'http://restcountries.eu/rest/v2/all')
+    countryRequest.send()
 }
