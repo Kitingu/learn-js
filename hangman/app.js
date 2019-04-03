@@ -18,27 +18,23 @@ window.addEventListener('keypress', (e) => {
 })
 
 
-getPuzzle((error, puzzle) => {
-    if (error) {
-        console.log(`Error: ${error}`)
-    }
-    else {
-        console.log(puzzle)
-    }
+getPuzzle('2').then((puzzle) => {
+    console.log(puzzle)
+}, (error) => {
+    console.log(`Error: ${error}`)
 })
 
 
 
 
 
-getCountry('UG', (error, country) => {
-    if (error) {
+getCountry('KE').then((country) => {
+    console.log(`Country Name:  ${country.name}`)
+
+}
+    , (error) => {
         console.log(`Error: ${error}`)
-    }
-    else {
-        console.log(`Country Name:  ${country.name}`)
-    }
-})
+    })
 
 
 
