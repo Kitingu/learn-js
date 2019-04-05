@@ -7,6 +7,8 @@ const getPuzzle = (wordCount) => {
             throw new Error('puzzle could not be fetched')
         }
 
+    }).then((data) =>{
+        return data.string
     })
 }
 
