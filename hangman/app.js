@@ -32,6 +32,16 @@ getCountry('KE').then((country) => {
     console.log(`Country Name:  ${country.name}`)
 
 }).catch((error) => {
-        return `Error: ${error}`
-    })
+    return `Error: ${error}`
+})
 
+
+
+
+getLocation().then((location) => {
+    return getCountry(location.country)
+}).then((country)=>{
+console.log(country.name)
+}).catch((error) => {
+    return `Error: ${error}`
+})
