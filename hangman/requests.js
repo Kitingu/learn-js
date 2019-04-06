@@ -37,3 +37,10 @@ const getLocation = async () => {
         throw new Error("can't fetch ip info at the moment")
     }
 }
+
+
+const getCurrentCountry = async () => {
+    const location = await getLocation()
+    const country = await getCountry(location.country)
+    return country
+}
