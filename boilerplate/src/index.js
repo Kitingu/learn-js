@@ -1,11 +1,5 @@
-const name = 'benedict'
-console.log(name)
+import './utilities'
+import { add } from './utilities' //if many you can comma separate them
+console.log('index')
 
-class Hangman {
-    myMethod() {
-        return 'test mike checking'
-    }
-}
-
-const hangman = new Hangman()
-console.log(hangman.myMethod())
+console.log(add(10, 5))
