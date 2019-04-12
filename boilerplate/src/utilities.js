@@ -1,5 +1,11 @@
-console.log('utilities')
 
-export const add = (a, b) => {
+
+const add = (a, b) => {
     return a + b
 }
+
+
+const square = (x) => x * x
+
+export { add, square as default }
+//  export default square for a singgle export
