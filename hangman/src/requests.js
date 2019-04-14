@@ -4,7 +4,7 @@ const getPuzzle = async (wordCount) => {
 
     if (response.status === 200) {
 
-        data = await response.json()
+        const data = await response.json()
         return data.puzzle
 
     }
