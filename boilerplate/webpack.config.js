@@ -21,7 +21,8 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, 'public'),
         publicPath: '/scripts/'
-    }
+    },
+    devtool: 'source-map'
 }
 
 // rules must be an array
