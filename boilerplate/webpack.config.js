@@ -5,9 +5,21 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'public/scripts'),
         filename: 'bundle.js'
+    },
+    module: {
+        rules: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['env']
+                }
+            }
+        }]
     }
 }
 
-
+// rules must be an array
         //absolute path i.e from root of the computer
         // __dirname specifies pat to avoid conflcts when the folderdirectory changes
