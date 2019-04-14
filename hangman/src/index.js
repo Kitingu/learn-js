@@ -1,6 +1,3 @@
-// http requests
-
-
 const puzzleEl = document.querySelector('#puzzle')
 const guessEl = document.querySelector('#guesses')
 
@@ -36,19 +33,3 @@ window.addEventListener('keypress', (e) => {
 
 document.querySelector('#reset').addEventListener('click', startGame)
 startGame()
-
-
-
-
-// getCountry('KE').then((country) => {
-//     console.log(`Country Name:  ${country.name}`)
-
-// }).catch((error) => {
-//     return `Error: ${error}`
-// })
-
-getCurrentCountry().then((country) => {
-    console.log(country.name)
-}).catch((error) => {
-    console.log(error)
-})
