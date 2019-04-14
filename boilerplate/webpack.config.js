@@ -17,9 +17,15 @@ module.exports = {
                 }
             }
         }]
+    },
+    devServer: {
+        contentBase: path.resolve(__dirname, 'public'),
+        publicPath: '/scripts/'
     }
 }
 
 // rules must be an array
         //absolute path i.e from root of the computer
         // __dirname specifies pat to avoid conflcts when the folderdirectory changes
+
+// contBase --> must be an absolute path
